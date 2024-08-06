@@ -24,38 +24,6 @@ export default function app() {
   //     setFlashCard(flashCard.flipped)
   //   }
 
-  //   return (
-  //     <div>
-  //       <header>
-  //         <img src="./images/react.svg" />
-  //         <h1> React Çalışma Arkadaşı </h1>
-  //       </header>
-
-  //       {/*-------Aşağıdaki div'i düzenleyin------------*/}
-
-  //       <div
-  //         className={`flash-card ${flashCard.isFlipped ? 'flipped' : ''}`}
-  //         onClick={handleClick()}
-  //       >
-  //         {/*-------Yukarıdaki div'i düzenleyin------------*/}
-
-  //         <div className="flash-card-inner">
-  //           <div className="flash-card-front">
-  //             <p className="question">{flashCard.question}</p>
-  //             <ol type="a">
-  //               {flashCard.choices.map((choice) => (
-  //                 <li key={crypto.randomUUID()}>{choice}</li>
-  //               ))}
-  //             </ol>
-  //           </div>
-  //           <div className="flash-card-back">
-  //             <p className="answer">{flashCard.answer}</p>
-  //             <p>{flashCard.explanation}</p>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   )
   const handleClick = () => {
     setFlashCard((prevFlashCard) => ({
       ...prevFlashCard,
