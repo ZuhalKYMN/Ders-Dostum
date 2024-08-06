@@ -7,6 +7,7 @@ export default function app() {
     choices: ["JavaScript framework'ü", 'JavaScript kütüphanesi'],
     answer: 'JavaScript kütüphanesi.',
     explanation: `Birinin framework diyebilme cüretini gösterdiğini duyarsanız, onu mümkün olduğunca bilgili bir şekilde düzeltmeniz, tercihen yanıtınıza " aslında..." diye başlamanız önemlidir.`,
+    flipped: false,
   })
 
   /* Challenge: 
@@ -19,30 +20,71 @@ export default function app() {
            
         3. Aynı kalıp sonraki tıklamalar için de tekrarlanmalıdır, böylece kullanıcı kartı istediği kadar ileri geri çevirmeye devam edebilir. 
 */
+  //   const handleClick = () => {
+  //     setFlashCard(flashCard.flipped)
+  //   }
+
+  //   return (
+  //     <div>
+  //       <header>
+  //         <img src="./images/react.svg" />
+  //         <h1> React Çalışma Arkadaşı </h1>
+  //       </header>
+
+  //       {/*-------Aşağıdaki div'i düzenleyin------------*/}
+
+  //       <div
+  //         className={`flash-card ${flashCard.isFlipped ? 'flipped' : ''}`}
+  //         onClick={handleClick()}
+  //       >
+  //         {/*-------Yukarıdaki div'i düzenleyin------------*/}
+
+  //         <div className="flash-card-inner">
+  //           <div className="flash-card-front">
+  //             <p className="question">{flashCard.question}</p>
+  //             <ol type="a">
+  //               {flashCard.choices.map((choice) => (
+  //                 <li key={crypto.randomUUID()}>{choice}</li>
+  //               ))}
+  //             </ol>
+  //           </div>
+  //           <div className="flash-card-back">
+  //             <p className="answer">{flashCard.answer}</p>
+  //             <p>{flashCard.explanation}</p>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  const handleClick = () => {
+    setFlashCard((prevFlashCard) => ({
+      ...prevFlashCard,
+      flipped: !prevFlashCard.flipped,
+    }))
+  }
 
   return (
     <div>
       <header>
-        <img src='./images/react.svg' />
-        <h1> React Çalışma Arkadaşı </h1>
+        <img src="./images/react.svg" alt="React logo" />
+        <h1>React Çalışma Arkadaşı</h1>
       </header>
 
-      {/*-------Aşağıdaki div'i düzenleyin------------*/}
-
-      <div className='flash-card'>
-        {/*-------Yukarıdaki div'i düzenleyin------------*/}
-
-        <div className='flash-card-inner'>
-          <div className='flash-card-front'>
-            <p className='question'>{flashCard.question}</p>
-            <ol type='a'>
+      <div
+        className={`flash-card ${flashCard.flipped ? 'flipped' : ''}`}
+        onClick={handleClick}
+      >
+        <div className="flash-card-inner">
+          <div className="flash-card-front">
+            <p className="question">{flashCard.question}</p>
+            <ol type="a">
               {flashCard.choices.map((choice) => (
                 <li key={crypto.randomUUID()}>{choice}</li>
               ))}
             </ol>
           </div>
-          <div className='flash-card-back'>
-            <p className='answer'>{flashCard.answer}</p>
+          <div className="flash-card-back">
+            <p className="answer">{flashCard.answer}</p>
             <p>{flashCard.explanation}</p>
           </div>
         </div>
